@@ -2,9 +2,7 @@
 <!-- With thanks to Elwyn Davies for the template. -->
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-<!ENTITY RFC2629 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2629.xml">
 <!ENTITY RFC3552 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3552.xml">
-<!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <?rfc strict="yes" ?>
@@ -16,7 +14,7 @@
 <?rfc subcompact="no" ?>
 <rfc category="std" docName="draft-doty-friendship-00" ipr="trust200902">
   <front>
-    <title abbrev="Add Friends Protocol">Protocol for Omnidirectional Open Friendship</title>
+    <title abbrev="New Friends Protocol">Protocol for Omnidirectional Open Friendship</title>
 
     <author fullname="Nick Doty" initials="N.P." role="editor"
             surname="Doty">
@@ -54,14 +52,15 @@
 
     <abstract>
       <t>
-        Friendship is abstract.
+        This document defines a mechanism for discovering endpoints for making friends (friendpoints); an HTTP-based, application-layer method for creating friendships; and requirements for friends. These elements constitute the Protocol for Omnidirectional Open Friendship (POOF).
       </t>
     </abstract>
   </front>
 
   <middle>
     <section title="Introduction">
-      <t>Introduction to Friendship.</t>
+      <t>Friendship has gotten pretty complicated in this day and age. Making new friends is lamentably difficult. We, the authors, are sad and lonely people. What with Facebook and all, and are we networking or flirting or what?</t>
+      <t>To address this problem, we document the following open protocol for making new friends. Users of the Web can discover friendpoints while browsing the Web and direct their user agents to create a new friendship through the method described in the "Making a Friend" section below.</t>
 
       <section title="Requirements Language">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -72,24 +71,56 @@
     </section>
     
     <section title="Friendpoint Discovery">
-      
+      <t>A server MAY indicate a new friends endpoint (hereafter "friendpoint") with text of a web page describing the results of the action. The following text is RECOMMENDED for English-language servers:
+      <list hangIndent="10" style="empty">
+          <t>+ Add me as a friend</t>
+      </list>
+      Italics are OPTIONAL. An exclamation point MAY be added, to indicate an imploring, desperate tone through feigned excitement. The text SHOULD use the imperative mode for the human-readable description.</t>
+      <t>No machine-readable means for friendpoint discovery is provided, because machines cannot have friends, cannot experience love and cannot pick you up from the airport. We MUST NOT be friends with robots.</t>
     </section>
     
-    <section title="Adding a Friend">
-      
+    <section title="Making a Friend">
+      <t>To create a friendship with the operator of the server, a user MUST submit an HTTP POST request to the friendpoint. The body of the request SHOULD be empty and servers SHOULD ignore the body of the request, except for any tokens for preventing cross-site request forgery. (See Security Considerations, below.)</t>
+      <t>A server should respond to the HTTP request with a status code to indicate the success or failure of creating a new friendship between the user and the operator of the server. For success, the server MUST respond with a status code in the 200 series. The following text is RECOMMENDED for the body of the response:
+        <list hangIndent="10" style="empty">
+            <t>We are now friends!</t>
+        </list>
+      </t>
+
+      <section title="Example">
+        <t>Nick browses to andrewbadr.com with his user agent and sees a link to "+ Add me as a friend". He clicks on the link to submit an HTML form and his user agent sends an HTTP POST request to the friendpoint:
+          <list hangIndent="10" style="empty">
+            <t>POST /friend/ HTTP/1.1 <vspace blankLines="0" />
+            Host: andrewbadr.com</t>
+          </list>
+          And a successful response from the server indicates that Andrew and Nick are now friends:
+          <list hangIndent="10" style="empty">
+            <t>HTTP/1.1 200 OK <vspace blankLines="0" />
+              Date: Wed, 20 August 2008 04:42:29 GMT <vspace blankLines="1" />
+              We are now friends!
+            </t>
+          </list>
+        </t>
+      </section>
     </section>
     
     <section title="Friendship">
-      
+      <t>
+        In all future interactions after the POST request is completed successfully, the operator of the client MUST treat the operator of the server as a friend and the operator of the server MUST treat the operator of the client as a friend. A friend MUST say hello and smile when passing you on the street and MUST tell you when there's something stuck to your shirt. A friend SHOULD invite you to social events, stick up for you in arguments with strangers and visit you if you're in the hospital in the same town. 
+      </t>
+      <t>
+        A friend also MAY pick you up from the airport, listen to you complain about your significant other and help you move apartments when you were too cheap to hire someone. A friend MAY drive you out to the edge of town, just anywhere, just to get away, when you feel like you've had enough. A friend MAY commit perjury on the witness stand to protect you. A true friend MAY remember your birthday without Facebook or the use of other friendship protocols.
+      </t>
     </section>
 
     <section anchor="IANA" title="IANA Considerations">
-      <t>This memo includes no request to IANA.</t>
+      <t>This document includes no request to IANA. Friendships do not need to be memorialized in any registry.</t>
     </section>
 
     <section anchor="Security" title="Security Considerations">
-      <t>All drafts are required to have a security considerations section.
-      See <xref target="RFC3552">RFC 3552</xref> for a guide.</t>
+      <t>
+        Friendship necessarily involves vulnerability.
+      </t>
     </section>
   </middle>
 
@@ -114,15 +145,7 @@
       &RFC2119;
     </references>
 
-    <references title="Informative References">
-      <!-- Here we use entities that we defined at the beginning. -->
-
-      &RFC2629;
-
-      &RFC3552;
-
-      &I-D.narten-iana-considerations-rfc2434bis;
-
-    </references>
+    <!-- <references title="Informative References">
+    </references> -->
   </back>
 </rfc>
