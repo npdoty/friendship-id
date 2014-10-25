@@ -114,7 +114,7 @@
     </section>
 
     <section anchor="IANA" title="IANA Considerations">
-      <t>This document includes no request to IANA. Friendships do not need to be memorialized in any registry.</t>
+      <t>This document includes no request to IANA.</t>
     </section>
 
     <section anchor="Security" title="Security Considerations">
