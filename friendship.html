@@ -5,7 +5,7 @@
 <head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
 
-  <title>Protocol for Omnidirectional Open Friendship</title>
+  <title>Protocol for Open Opt-in Online/Offline Friendship (PO4F)</title>
 
   <style type="text/css" title="Xml2Rfc (sans serif)">
   /*<![CDATA[*/
@@ -389,11 +389,11 @@
   <meta name="generator" content="xml2rfc version 2.4.8 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
-  <meta name="dct.creator" content="Doty, N., Ed. and A. Badr" />
+  <meta name="dct.creator" content="Doty, NP., Ed. and A. Badr" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-doty-friendship-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2014-10-25" />
-  <meta name="dct.abstract" content="This document defines a mechanism for discovering endpoints for making friends (friendpoints); an HTTP-based, application-layer method for creating friendships; and requirements for friends. These elements constitute the Protocol for Omnidirectional Open Friendship (POOF).  " />
-  <meta name="description" content="This document defines a mechanism for discovering endpoints for making friends (friendpoints); an HTTP-based, application-layer method for creating friendships; and requirements for friends. These elements constitute the Protocol for Omnidirectional Open Friendship (POOF).  " />
+  <meta name="dct.abstract" content="This document defines a mechanism for discovering endpoints for making friends (friendpoints); an HTTP-based, application-layer method for creating friendships; and requirements for friends. These elements constitute the Protocol for Open Opt-in Online/Offline Friendship (POOOOF, or PO4F).  " />
+  <meta name="description" content="This document defines a mechanism for discovering endpoints for making friends (friendpoints); an HTTP-based, application-layer method for creating friendships; and requirements for friends. These elements constitute the Protocol for Open Opt-in Online/Offline Friendship (POOOOF, or PO4F).  " />
 
 </head>
 
@@ -404,7 +404,7 @@
     
     	<tr>
   <td class="left">Internet Engineering Task Force</td>
-  <td class="right">N. Doty, Ed.</td>
+  <td class="right">NP. Doty, Ed.</td>
 </tr>
 <tr>
   <td class="left">Internet-Draft</td>
@@ -427,13 +427,13 @@
     </tbody>
   </table>
 
-  <p class="title">Protocol for Omnidirectional Open Friendship<br />
+  <p class="title">Protocol for Open Opt-in Online/Offline Friendship (PO4F)<br />
   <span class="filename">draft-doty-friendship-00</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document defines a mechanism for discovering endpoints for making friends (friendpoints); an HTTP-based, application-layer method for creating friendships; and requirements for friends. These elements constitute the Protocol for Omnidirectional Open Friendship (POOF).  </p>
+<p>This document defines a mechanism for discovering endpoints for making friends (friendpoints); an HTTP-based, application-layer method for creating friendships; and requirements for friends. These elements constitute the Protocol for Open Opt-in Online/Offline Friendship (POOOOF, or PO4F).  </p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -482,7 +482,7 @@
 <p id="rfc.section.2.p.2">No machine-readable means for friendpoint discovery is provided, because machines cannot have friends, cannot experience love and cannot pick you up from the airport. We MUST NOT be friends with robots.</p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> Making a Friend</h1>
 <p id="rfc.section.3.p.1">To create a friendship with the operator of the server, a user MUST submit an HTTP POST request to the friendpoint. The body of the request SHOULD be empty and servers SHOULD ignore the body of the request, except for any tokens for preventing cross-site request forgery. (See Security Considerations, below.)</p>
-<p id="rfc.section.3.p.2">A server should respond to the HTTP request with a status code to indicate the success or failure of creating a new friendship between the user and the operator of the server. For success, the server MUST respond with a status code in the 200 series. The following text is RECOMMENDED for the body of the response: </p>
+<p id="rfc.section.3.p.2">A server SHOULD respond to the HTTP request with a status code to indicate the success or failure of creating a new friendship between the user and the operator of the server. For success, the server MUST respond with a status code in the 200 series. The following text is RECOMMENDED for the body of the response: </p>
 
 <ul class="empty">
   <li>We are now friends!</li>
@@ -504,10 +504,10 @@
 
 <p> </p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> Friendship</h1>
-<p id="rfc.section.4.p.1">In all future interactions after the POST request is completed successfully, the operator of the client MUST treat the operator of the server as a friend and the operator of the server MUST treat the operator of the client as a friend. A friend MUST say hello and smile when passing you on the street and MUST tell you when there's something stuck to your shirt. A friend SHOULD invite you to social events, stick up for you in arguments with strangers and visit you if you're in the hospital in the same town.  </p>
-<p id="rfc.section.4.p.2">A friend also MAY pick you up from the airport, listen to you complain about your significant other and help you move apartments when you were too cheap to hire someone. A friend MAY drive you out to the edge of town, just anywhere, just to get away, when you feel like you've had enough. A friend MAY commit perjury on the witness stand to protect you. A true friend MAY remember your birthday without Facebook or the use of other friendship protocols.  </p>
+<p id="rfc.section.4.p.1">In all future interactions after the POST request is completed successfully, the user MUST treat the operator of the server as a friend and the operator of the server MUST treat the user as a friend. A friend MUST say hello and smile when passing you on the street and MUST tell you when there's something stuck to your shirt. A friend SHOULD invite you to social events, stick up for you in arguments with strangers, and visit you if you're in the hospital in the same town.  </p>
+<p id="rfc.section.4.p.2">A friend also MAY pick you up from the airport, listen to you complain about your significant other, and help you move apartments when you were too cheap to hire someone. A friend MAY drive you out to the edge of town, just anywhere, just to get away, when you feel like you've had enough. A friend MAY commit perjury on the witness stand to protect you. A true friend MAY remember your birthday without Facebook or the use of other friendship protocols.  </p>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
-<p id="rfc.section.5.p.1">This document includes no request to IANA. Friendships do not need to be memorialized in any registry.</p>
+<p id="rfc.section.5.p.1">This document includes no request to IANA.</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
 <p id="rfc.section.6.p.1">Friendship necessarily involves vulnerability.  </p>
 <h1 id="rfc.references"><a href="#rfc.references">7.</a> Normative References</h1>
@@ -565,7 +565,9 @@
 	  </span>
 	  <span class="country-name vcardline"></span>
 	</span>
-	<span class="vcardline">URI: <a href="andrewbadr.com">andrewbadr.com</a></span>
+	<span class="vcardline">EMail: <a href="mailto:andrewbadr@gmail.com">andrewbadr@gmail.com</a></span>
+
+<span class="vcardline">URI: <a href="andrewbadr.com">andrewbadr.com</a></span>
 
   </address>
 </div>

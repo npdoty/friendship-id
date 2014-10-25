@@ -7,8 +7,6 @@ Generate HTML document: `xml2rfc friendship.xml --html`
 
 ## TODO
 
-[ ] security considerations
-[ ] additional status codes
-[ ] better name?
-[ ] make a friendly website
+[X] security considerations
+[X] better name?
 [ ] tell people about it
