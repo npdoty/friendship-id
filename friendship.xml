@@ -12,7 +12,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="std" docName="draft-doty-friendship-00" ipr="trust200902">
+<rfc category="exp" docName="draft-doty-friendship-00" ipr="trust200902">
   <front>
     <title abbrev="New Friends Protocol">Protocol for Omnidirectional Open Friendship</title>
 
